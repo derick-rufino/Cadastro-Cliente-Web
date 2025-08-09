@@ -1,0 +1,411 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/*
+	@better-comments
+	Estilo minimalista baseado no Google Material Design 3 Expressive
+	Regra 60-30-10 de cores
+	Fonte principal: Montserrat, secundária: Google Sans Code
+	Data: 09/08/2025
+*/
+
+:root {
+  /* Paleta 60-30-10 */
+  --color-primary: #1a73e8; /* 60% - azul Material */
+  --color-secondary: #ea8600; /* 30% - laranja mais escuro para melhor contraste */
+  --color-accent: #ea4335; /* 10% - vermelho Material */
+  --color-bg: #cfd0d1;
+  --color-surface: #fff;
+  --color-on-primary: #fff;
+  --color-on-secondary: #222;
+  --color-on-accent: #fff;
+  --color-text: #1f1f1f; /* Texto mais escuro para melhor contraste */
+  --color-text-secondary: #4f4f4f; /* Texto secundário com bom contraste */
+  --radius: 12px;
+  --shadow: 0 2px 8px 0 rgba(60, 64, 67, 0.08);
+  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  background: var(--color-bg);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Montserrat", Arial, sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  &::-webkit-scrollbar{
+    width: 4px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Google Sans Code", "Montserrat", Arial, sans-serif;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+p,
+label,
+input,
+button,
+select,
+textarea {
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover {
+  color: var(--color-accent);
+}
+
+main,
+.container {
+  max-width: 520px;
+  margin: 2rem auto;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem;
+}
+
+/* Título principal */
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  background: #fff;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  font-weight: 400;
+  color: var(--color-text);
+}
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: #9ca3af;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.12);
+  background: #fff;
+}
+
+button {
+  display: inline-block;
+  font-family: "Google Sans Code", "Montserrat", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius);
+  padding: 1rem 2.5rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: all var(--transition);
+  width: 100%;
+  margin-top: 0.5rem;
+}
+button:hover,
+button:focus {
+  background: #1557b0;
+  box-shadow: 0 4px 16px 0 rgba(26, 115, 232, 0.24);
+}
+
+.btn-remover {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  width: auto;
+  margin: 0;
+}
+.btn-remover:hover {
+  background: #d33b2c;
+  box-shadow: 0 4px 16px 0 rgba(234, 67, 53, 0.24);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  font-size: 1rem;
+}
+
+/* Accent elements */
+.accent {
+  color: var(--color-accent);
+}
+
+/* Form styling */
+.form-cadastro {
+  margin-bottom: 2.5rem;
+}
+
+.campo {
+  margin-bottom: 1.5rem;
+}
+
+/* Lista de clientes */
+.lista-clientes {
+  border-top: 2px solid #e5e7eb;
+  padding-top: 2rem;
+}
+
+#listaClientes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.li-cliente {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  background: #f8f9fa;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--color-primary);
+  transition: all var(--transition);
+}
+
+.li-cliente:hover {
+  background: #e9ecef;
+  box-shadow: var(--shadow);
+}
+
+.info-cliente {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nome-cliente {
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+.email-cliente {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-family: "Google Sans Code", monospace;
+}
+
+/* Template de exemplo - oculto inicialmente */
+.template-exemplo {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* Layout Desktop Horizontal - a partir de 1200px */
+@media (min-width: 1200px) {
+  main,
+  .container {
+    max-width: none;
+    margin: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 2rem;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 2fr;
+    column-gap: 3rem;
+    row-gap: 1rem;
+    align-items: start;
+  }
+
+  /* Título principal no layout horizontal */
+  .container > h1 {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+  }
+
+  /* Form styling para desktop */
+  .form-cadastro {
+    margin-bottom: 0;
+    background: var(--color-surface);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+  }
+
+  /* Lista de clientes para desktop */
+  .lista-clientes {
+    border-top: none;
+    padding-top: 0;
+    background: var(--color-surface);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+  }
+
+  /* H2 ajustado para desktop */
+  h2 {
+    margin-top: 0;
+  }
+
+  /* Scrollbar customizada para desktop */
+  .lista-clientes::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .lista-clientes::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  .lista-clientes::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+  }
+
+  .lista-clientes::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+}
+
+/* Responsividade Mobile/Tablet */
+@media (max-width: 1024px) {
+  main,
+  .container {
+    max-width: 520px;
+    margin: 2rem auto;
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem 1.5rem;
+    display: block;
+  }
+
+  .container > h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-cadastro {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    position: static;
+    margin-bottom: 2.5rem;
+  }
+
+  .lista-clientes {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    max-height: none;
+    overflow-y: visible;
+    border-top: 2px solid #e5e7eb;
+    padding-top: 2rem;
+  }
+
+  h2 {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  main,
+  .container {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .container > h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-cadastro,
+  .lista-clientes {
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .li-cliente {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .btn-remover {
+    align-self: flex-end;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 0.875rem 1rem;
+  }
+
+  button {
+    padding: 0.875rem 2rem;
+  }
+}
