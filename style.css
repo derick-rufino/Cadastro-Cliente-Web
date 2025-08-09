@@ -47,7 +47,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     width: 4px;
   }
 }
@@ -201,6 +201,36 @@ label {
 .lista-clientes {
   border-top: 2px solid #e5e7eb;
   padding-top: 2rem;
+  scroll-behavior: smooth;
+}
+
+/* Header da lista com botão ao lado */
+.lista-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.lista-header h2 {
+  margin: 0;
+}
+
+/* Botão limpar lista - pequeno e vermelho */
+.btn-limpar-tudo {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  width: auto;
+  margin: 0;
+  border-radius: 8px;
+}
+
+.btn-limpar-tudo:hover {
+  background: #d33b2c;
+  box-shadow: 0 4px 16px 0 rgba(234, 67, 53, 0.24);
 }
 
 #listaClientes {
@@ -386,6 +416,21 @@ label {
 
   h2 {
     font-size: 1.25rem;
+  }
+
+  /* Ajustar header da lista em mobile */
+  .lista-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .lista-header h2 {
+    margin-bottom: 0;
+  }
+
+  .btn-limpar-tudo {
+    align-self: flex-end;
   }
 
   .li-cliente {

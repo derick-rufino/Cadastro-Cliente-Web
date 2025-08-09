@@ -2,6 +2,7 @@
 const nomeCliente = document.getElementById("nomeCliente");
 const emailCliente = document.getElementById("emailCliente");
 const formCliente = document.getElementById("formCliente");
+const btnLimparLista = document.getElementById("btnLimparTudo");
 
 const registroClientes = []; // Array para receber os clientes cadastrados
 const listaClientes = document.getElementById("listaClientes"); // Lista para exibir os clientes
@@ -17,6 +18,7 @@ function adicionarCliente(cliente) {
             Remover
           </button>`;
   listaClientes.appendChild(novoCliente);
+  novoCliente.scrollIntoView();
 }
 
 carregarDadosSalvos();
@@ -30,7 +32,7 @@ function carregarDadosSalvos() {
       adicionarCliente(cliente);
     });
   } else {
-    alert("Sem dados salvos");
+    console.error("Falha ao carregar registros");
   }
 }
 
@@ -48,6 +50,11 @@ formCliente.addEventListener("submit", function (event) {
 
   adicionarCliente(cliente);
   atualizarRegistroLocal();
+
+  nomeCliente.value = "";
+  emailCliente.value = "";
+  nomeCliente.focus(); // Retorna o foco para o campo nome
+
 });
 
 function removerCliente(clienteId) {
@@ -76,3 +83,11 @@ function atualizarRegistroLocal() {
   // Guarda no localStorage
   localStorage.setItem("registroSalvo", registroEmTexto);
 }
+
+btnLimparLista.addEventListener("click", function () {
+  if (confirm("Deseja remover TODOS os registros?")) {
+    registroClientes.length = 0; // Esvazia array
+    listaClientes.innerHTML = ""; // Limpa HTML
+    atualizarRegistroLocal(); // Salva array vazio
+  }
+});
