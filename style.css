@@ -48,7 +48,7 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   &::-webkit-scrollbar {
-    width: 4px;
+    display: none;
   }
 }
 
@@ -60,7 +60,7 @@ h5,
 h6 {
   font-family: "Google Sans Code", "Montserrat", Arial, sans-serif;
   font-weight: 700;
-  margin: 0 0 1.5rem 0;
+  margin: 0;
   color: var(--color-primary);
   letter-spacing: -0.01em;
 }
@@ -68,7 +68,6 @@ h6 {
 h1 {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 h2 {
@@ -109,7 +108,6 @@ main,
 h1 {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 input,
@@ -303,8 +301,7 @@ label {
   .container > h1 {
     grid-column: 1 / -1;
     text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
 
   /* Form styling para desktop */
@@ -338,7 +335,10 @@ label {
 
   /* Scrollbar customizada para desktop */
   .lista-clientes::-webkit-scrollbar {
-    width: 8px;
+    width: 4px;
+  }
+  .lista-clientes::-webkit-scrollbar-track {
+    display: none;
   }
 
   .lista-clientes::-webkit-scrollbar-track {
