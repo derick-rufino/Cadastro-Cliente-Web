@@ -6,6 +6,34 @@ const formCliente = document.getElementById("formCliente");
 const registroClientes = []; // Array para receber os clientes cadastrados
 const listaClientes = document.getElementById("listaClientes"); // Lista para exibir os clientes
 
+function adicionarCliente(cliente) {
+  const novoCliente = document.createElement("li");
+  novoCliente.className = "li-cliente";
+  novoCliente.innerHTML = `<div class="info-cliente">
+            <span class="nome-cliente">${cliente.nome}</span>
+            <span class="email-cliente">${cliente.email}</span>
+          </div>
+          <button class="btn-remover" onclick="removerCliente(${cliente.id})">
+            Remover
+          </button>`;
+  listaClientes.appendChild(novoCliente);
+}
+
+carregarDadosSalvos();
+function carregarDadosSalvos() {
+  const registroCarregado = localStorage.getItem("registroSalvo");
+  if (registroCarregado) {
+    const registroEmArray = JSON.parse(registroCarregado);
+    console.log(`Existem ${registroEmArray.length} registros`);
+    registroEmArray.forEach((cliente) => {
+      registroClientes.push(cliente);
+      adicionarCliente(cliente);
+    });
+  } else {
+    alert("Sem dados salvos");
+  }
+}
+
 formCliente.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -18,21 +46,12 @@ formCliente.addEventListener("submit", function (event) {
   registroClientes.push(cliente);
   console.log("Cliente cadastrado:", cliente);
 
-  const novoCliente = document.createElement("li");
-  novoCliente.className = "li-cliente";
-  novoCliente.innerHTML = `<div class="info-cliente">
-            <span class="nome-cliente">${cliente.nome}</span>
-            <span class="email-cliente">${cliente.email}</span>
-          </div>
-          <button class="btn-remover" onclick="removerCliente(${cliente.id})">
-            Remover
-          </button>`;
-  listaClientes.appendChild(novoCliente);
+  adicionarCliente(cliente);
+  atualizarRegistroLocal();
 });
 
 function removerCliente(clienteId) {
-  console.log("Botão clicado:", clienteId);
-  console.log("Elemento pai:", clienteId.parentElement);
+  console.log("Elemento removido:", clienteId);
 
   // usar findIndex para encontrar o id do cliente
   const index = registroClientes.findIndex(
@@ -48,4 +67,12 @@ function removerCliente(clienteId) {
   const todosOsItens = listaClientes.children;
   // Depois eu acesso o elemento espcífico atrvés do index e o removo
   todosOsItens[index].remove();
+  atualizarRegistroLocal();
+}
+
+function atualizarRegistroLocal() {
+  // Converte para texto
+  const registroEmTexto = JSON.stringify(registroClientes);
+  // Guarda no localStorage
+  localStorage.setItem("registroSalvo", registroEmTexto);
 }
